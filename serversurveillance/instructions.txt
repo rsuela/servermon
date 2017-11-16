@@ -1,0 +1,9 @@
+Windows
+
+1. install python 3.6
+2. Install virtualEnv
+3. Install upgraded setuptools
+4. Install Microsoft build tools 14.0
+5. Install channels
+6. install asgi_redis
+7. Install Redis-server (Windows)
