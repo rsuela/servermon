@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+	<link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+    <title>ServerSurveillance</title>
+    <link rel="stylesheet" type="text/css" href="{% static "servermon/css/style.css" %}">
+  </head>
+  <body>
+    {% for obj in object_list %}
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">{{ obj.name }}</h4>
+            </div>
+            <div class="modal-body">
+                <h5>System</h2>
+                <ul class="list-unstyled">
+                    <li>Processor: </li>
+                    <li>Installed Memory: </li>
+                    <li>System Type: </li>
+                    <li>Operating System: {{ obj.os }}</li>
+                </ul>
+                <h5>IP Configuration</h2>
+                <ul class="list-unstyled">
+                    <li>IP Address: {{ obj.ip }}</li>
+                    <li>MAC Address:</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+  </body>
+</html>

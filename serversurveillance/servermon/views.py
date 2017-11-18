@@ -11,3 +11,14 @@ def server_list(request):
     }
     return render(request, 'servermon/index.html', context)
 
+def server_details(request):
+    if request.method == 'GET':
+            server_id = request.GET['server_id']
+    
+    print(server_id)
+    queryset = Server.objects.filter(id=server_id)
+    print(queryset)
+    context = {
+        'object_list': queryset
+    }
+    return render(request, 'servermon/server_details.html', context)

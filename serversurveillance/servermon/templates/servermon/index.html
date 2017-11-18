@@ -93,11 +93,12 @@
 
   		<div class="col-md-8">
             {% for obj in object_list %}
-                <article class="card" onclick="myFunction()">
+                <article class="card">
                   <img class="imgCards" src="{% static "servermon/assets/winserver.png" %}" alt="OS IMAGE">
                   <div class="card-block">
                     <h4 class="card-title">{{ obj.name }}</h4>
                     <p class="card-text">{{ obj.ip }}</p>
+                    <p class="cardid hidden">{{ obj.id }}</p>
                   </div>
                 </article>
             {% endfor %}
@@ -114,11 +115,23 @@
     <script src="{% static "channels/js/websocketbridge.js" %}"></script>
     
     <script>
-        function myFunction() {
-            $('#myModal').modal({
-                show: 'true'
-            }); 
-        }
+        $('.card').click(function(){
+            var cardid;
+            cardid = $(this).find('.cardid').text();
+            <!-- cardtitle = $(this).find('.card-title').text(); -->
+            $.get('/server_details', {server_id: cardid}, function(data){
+                $('#myModal').html(data);
+                $('#myModal').modal({
+                    show: 'true'
+                }); 
+            });
+            <!-- $('.modal-title').text(cardtitle) -->
+            <!-- $('#myModal').modal({ -->
+                <!-- show: 'true' -->
+            <!-- }); -->
+        });
+        
+
     </script>
   <script>
   </body>

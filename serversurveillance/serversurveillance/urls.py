@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from servermon.views import server_list
+from servermon.views import server_list, server_details
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$/', admin.site.urls),
     url(r'^$', server_list, name='server_list'),
+    url(r'^server_details$', server_details, name='server_details'),
 ]
