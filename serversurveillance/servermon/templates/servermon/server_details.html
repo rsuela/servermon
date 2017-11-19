@@ -12,6 +12,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
     <title>ServerSurveillance</title>
     <link rel="stylesheet" type="text/css" href="{% static "servermon/css/style.css" %}">
+    <link href="https://cdn.jsdelivr.net/npm/jquery.terminal@1.10.1/css/jquery.terminal.min.css" rel="stylesheet"/>
   </head>
   <body>
     {% for obj in object_list %}
@@ -21,21 +22,25 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">{{ obj.name }}</h4>
+              <h2 class="modal-title">{{ obj.name }}</h2>
             </div>
             <div class="modal-body">
-                <h5>System</h2>
-                <ul class="list-unstyled">
-                    <li>Processor: </li>
-                    <li>Installed Memory: </li>
-                    <li>System Type: </li>
-                    <li>Operating System: {{ obj.os }}</li>
-                </ul>
-                <h5>IP Configuration</h2>
-                <ul class="list-unstyled">
-                    <li>IP Address: {{ obj.ip }}</li>
-                    <li>MAC Address:</li>
-                </ul>
+                <div class="card-data">
+                    <h4 class="list-group-item-heading">System</h4>
+                    <ul>
+                        <li>Processor: </li>
+                        <li>Installed Memory: </li>
+                        <li>System Type: </li>
+                        <li>Operating System: {{ obj.os }}</li>
+                    </ul>
+                    <h4>IP Configuration</h4>
+                    <ul>
+                        <li>IP Address: {{ obj.ip }}</li>
+                        <li>MAC Address:</li>
+                    </ul>
+                    <div class="term-area">
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -43,5 +48,6 @@
           </div>
         </div>
     {% endfor %}
+    <script src="{% static "servermon/js/servermon.js" %}"></script>
   </body>
 </html>

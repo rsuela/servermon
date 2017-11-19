@@ -10,8 +10,17 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	
 	<link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/jquery.terminal@1.10.1/css/jquery.terminal.min.css" rel="stylesheet"/>
     <title>ServerSurveillance</title>
     <link rel="stylesheet" type="text/css" href="{% static "servermon/css/style.css" %}">
+    <style>
+
+    .term-area{
+        min-height: 100px;
+        height: 120px;
+        margin-bottom: 30px;
+    }
+    </style>
   </head>
   <body>
    <div class="container-fluid">
@@ -27,6 +36,9 @@
             </div>
             <div class="modal-body">
               <p>Some text in the modal.</p>
+                    <div class="term-area">
+                        <pre>This area is reserved</pre>
+                    </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -108,31 +120,14 @@
   		</div>
 	</div>
    </div> <!-- main container-fluid -->
+
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="{% static "channels/js/websocketbridge.js" %}"></script>
-    
-    <script>
-        $('.card').click(function(){
-            var cardid;
-            cardid = $(this).find('.cardid').text();
-            <!-- cardtitle = $(this).find('.card-title').text(); -->
-            $.get('/server_details', {server_id: cardid}, function(data){
-                $('#myModal').html(data);
-                $('#myModal').modal({
-                    show: 'true'
-                }); 
-            });
-            <!-- $('.modal-title').text(cardtitle) -->
-            <!-- $('#myModal').modal({ -->
-                <!-- show: 'true' -->
-            <!-- }); -->
-        });
-        
-
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.10.1/js/jquery.terminal.min.js"></script>
+    <script src="{% static "servermon/js/servermon.js" %}"></script>
   <script>
   </body>
 </html>

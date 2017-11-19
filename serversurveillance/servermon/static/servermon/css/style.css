@@ -91,7 +91,10 @@ img {
     border-bottom-left-radius: 4px;
 }
 
-ul {
+.card-data ul {
   list-style-type: none;
+}
+
+    
 }
 
