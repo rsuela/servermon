@@ -7,9 +7,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	
-	<link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jquery.terminal@1.10.1/css/jquery.terminal.min.css" rel="stylesheet"/>
     <title>ServerSurveillance</title>
     <link rel="stylesheet" type="text/css" href="{% static "servermon/css/style.css" %}">
@@ -18,14 +18,22 @@
     .term-area{
         min-height: 100px;
         height: 120px;
-        margin-bottom: 30px;
+    }
+    
+    .card-data{
+        font-family: Helvetica, Arial, Sans-Serif;
+        font-size: 14px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 400;
+        line-height: 20px;
     }
     </style>
   </head>
   <body>
    <div class="container-fluid">
       <!-- Modal -->
-      <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal fade" id="server-info" role="dialog">
         <div class="modal-dialog">
         
           <!-- Modal content-->
@@ -58,34 +66,34 @@
                         <span class="ss-brand minifyLogo">
                             <span>ServerSurveillance</span>
                         </span>
-				
+                
                     </div>
                 </div>
             </div>
         </nav>
- 	<div class="row">
- 		<div class="col-md-2">
-		</div>
- 		<div class="col-md-8">
-		    <div class="input-group">
+     <div class="row">
+         <div class="col-md-2">
+        </div>
+         <div class="col-md-8">
+            <div class="input-group">
                 <div class="input-group-btn search-panel dropdown dropdown-lg">
                     
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    	<span id="search_concept">Filter by:</span> <span class="caret"></span>
+                        <span id="search_concept">Filter by:</span> <span class="caret"></span>
                     </button>
-					<div class="dropdown-menu dropdown-menu-left" role="menu">
-						<form class="form-horizontal" role="form">
-						  <div class="form-group">
-							<label for="filter">Filter by</label>
-							<select class="form-control">
-								<option value="0" selected="true">Computer Name</option>
-								<option value="1">Operating System</option>
-								<option value="2">IP Address</option>
-								<option value="3">Software(s)</option>
-							</select>
-						  </div>
-						</form>
-					</div>
+                    <div class="dropdown-menu dropdown-menu-left" role="menu">
+                        <form class="form-horizontal" role="form">
+                          <div class="form-group">
+                            <label for="filter">Filter by</label>
+                            <select class="form-control">
+                                <option value="0" selected="true">Computer Name</option>
+                                <option value="1">Operating System</option>
+                                <option value="2">IP Address</option>
+                                <option value="3">Software(s)</option>
+                            </select>
+                          </div>
+                        </form>
+                    </div>
                 </div>
                 <input type="hidden" name="search_param" value="all" id="search_param">         
                 <input type="text" class="form-control" name="x" placeholder="Search term...">
@@ -94,16 +102,16 @@
                 </span>
             </div>
         </div>
-		</div>
- 		<div class="col-md-2">
-		</div>
- 	</div>
-  	<div class="row">
-  		<div class="col-md-2">
-  			
-  		</div>
+        </div>
+         <div class="col-md-2">
+        </div>
+     </div>
+      <div class="row">
+          <div class="col-md-2">
+              
+          </div>
 
-  		<div class="col-md-8">
+          <div class="col-md-8">
             {% for obj in object_list %}
                 <article class="card">
                   <img class="imgCards" src="{% static "servermon/assets/winserver.png" %}" alt="OS IMAGE">
@@ -114,11 +122,11 @@
                   </div>
                 </article>
             {% endfor %}
-		</div> <!-- col-md-8 end -->
-  		<div class="col-md-2">
-  			
-  		</div>
-	</div>
+        </div> <!-- col-md-8 end -->
+          <div class="col-md-2">
+              
+          </div>
+    </div>
    </div> <!-- main container-fluid -->
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
