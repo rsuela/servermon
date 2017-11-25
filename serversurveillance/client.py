@@ -4,6 +4,8 @@ import time
 
 def on_message(ws, message):
     print(message)
+    # if message.lower() =='yolo':
+        # ws.close()
 
 def on_error(ws, error):
     print(error)
@@ -13,12 +15,15 @@ def on_close(ws):
 
 def on_open(ws):
     def run(*args):
-        for i in range(3):
-            time.sleep(1)
-            ws.send("Hello %d" % i)
-        time.sleep(1)
-        ws.close()
-        print("thread terminating...")
+        print('1')
+        # for i in range(3):
+            # time.sleep(1)
+        ws.send("hostname:Wakenaiz,ip:192.168.1.20,os:Windows 10 Pro")
+        # print('2')
+        # time.sleep(1)
+        # ws.close()
+        # print("thread terminating...")
+    # print('4')
     _thread.start_new_thread(run, ())
 
 

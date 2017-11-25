@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Server
 import redis
+from channels.channel import Channel
 
 redis_conn = redis.Redis("localhost", 6379)
 
@@ -23,10 +24,18 @@ def server_details(request):
     
 def terminal(request):
     if request.method == 'POST':
-        server_id = request.POST['command']
+        command = request.POST['command']
+        server_id = request.POST['server_id']
     print(server_id)
-    # queryset = Server.objects.filter(id=server_id)
-    # print(queryset)
+    print(command)
+
+    # get the reply channel
+    channel_reply = Server.objects.filter(id=server_id).values('channel_reply')[0]['channel_reply']
+    print('from views ' + channel_reply)
+    Channel(channel_reply).send({ "text": command})
+    
+    # how to receive
+    
     context = {
         'object_list': 'abc'
     }

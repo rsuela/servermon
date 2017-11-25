@@ -11,7 +11,7 @@ def ws_connect(message):
     # else:
         # print("Registering %s" %(client_ip) )
         # Server(ip=client_ip
-    
+    print(message.reply_channel)
     message.reply_channel.send({"accept": True})
     
 
@@ -26,14 +26,14 @@ def ws_message(message):
     for data in data_list:
         key = data.split(":")[0]
         value = data.split(":")[-1]
-        print(key)
+        # print(key)
         if key == "os":
             client_os = value
         elif key == "hostname":
             hostname = value
         elif key == 'ip':
             client_ip = value
-    #endfor
+    # endfor
     registered_ips = (str(queryset)
                         .replace("[","")
                         .replace("'","")
@@ -46,10 +46,17 @@ def ws_message(message):
         print("naa")
     else:
         print("Registering %s" %(client_ip) )
-        s1 = Server(ip=client_ip, os=client_os, name=hostname, channel_reply=message.reply_channel)
+        s1 = Server(ip=client_ip,
+                    processor="Intel(R) Core(TM) i5-3320M CPU @ 2.60GHz",
+                    memory="8.00 GB",
+                    arch="64-bit Operating System, x64 Based Processor",
+                    mac="84-3A-4B-77-B0-D0",
+                    os=client_os,
+                    name=hostname,
+                    channel_reply=message.reply_channel)
         s1.save()
         
-    # print('ws_message ' + message.content['text'])
+    print('ws_message ' + message.content['text'])
     message.reply_channel.send({
         "text": "YOLO",
     })
