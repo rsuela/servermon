@@ -7,10 +7,10 @@ class Server(models.Model):
     processor = models.CharField(max_length=120)
     memory = models.CharField(max_length=120)
     arch = models.CharField(max_length=120)
-    os = models.CharField(max_length=120)
+    system = models.CharField(max_length=120)
     
     # IP configuration
-    ip = models.CharField(unique=True, max_length=30)
+    ipaddress = models.CharField(max_length=30)
     mac = models.CharField( max_length=30)
     
     # Misc

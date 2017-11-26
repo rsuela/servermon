@@ -13,11 +13,11 @@ def on_close(ws):
 
 def on_open(ws):
     def run(*args):
-        ws.send("{'name' : 'Wakenaiz'," \
+        ws.send("{'name' : 'Wakenaizzz'," \
                  "'processor' : 'processor'," \
                  "'memory' : 'memory'," \
                  "'arch' : 'arch'," \
-                 "'ipaddress' : '192.168.1.21'," \
+                 "'ipaddress' : '192.168.1.22'," \
                  "'mac' : 'mac'," \
                  "'system' : 'Windows 10 Pro'}")
                   

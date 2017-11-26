@@ -34,8 +34,6 @@ def terminal(request):
     print('from views ' + channel_reply)
     Channel(channel_reply).send({ "text": command})
     
-    # how to receive
-    
     context = {
         'object_list': 'abc'
     }
