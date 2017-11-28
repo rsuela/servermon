@@ -10,7 +10,7 @@ def server_list(request):
     context = {
         'object_list': queryset
     }
-    return render(request, 'servermon/index.html', context)
+    return render(request, 'index.html', context)
 
 def server_details(request):
     if request.method == 'GET':
@@ -20,7 +20,7 @@ def server_details(request):
     context = {
         'object_list': queryset
     }
-    return render(request, 'servermon/server_details.html', context)
+    return render(request, 'server_details.html', context)
     
 def terminal(request):
     if request.method == 'POST':
@@ -37,4 +37,4 @@ def terminal(request):
     context = {
         'object_list': 'abc'
     }
-    return render(request, 'servermon/terminal.html', context)
+    return render(request, 'terminal.html', context)

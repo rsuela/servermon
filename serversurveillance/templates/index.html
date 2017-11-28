@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class='wrapper card-view'>
+      <div class='card-container'>
+        {% for obj in object_list %}
+        <figure class='card'>
+          <img src="{% static 'servermon/assets/centos.jpg' %}">
+          <figcaption>
+            <h4>{{ obj.name }}</h4>
+            <span cardid='{{ obj.id }}'>IP ADDRESS: {{ obj.ipaddress }}</span>
+          </figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+    </div>
+{% endblock content %}
+  
