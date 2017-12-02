@@ -5,13 +5,23 @@
       <div id='logo-container'>
         <h1>servermon</h1>
       </div>
+      <div id='filter-container'>
+          <input id="searchinput" type="text" class="searchTerm" placeholder="Search for server.">
+          <button id="search" type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+         </button>
+       </div>
       <link rel="stylesheet" type="text/css" href="{% static "servermon/css/style.css" %}">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     </header>
 
     <body>
-    {% block content %}{% endblock content %}
+    <div class='wrapper card-view'>
+        <div class='card-container'>
+            {% block content %}{% endblock content %}
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="{% static "servermon/js/main.js" %}?v=1"></script>
     </body>
 </html>
-  

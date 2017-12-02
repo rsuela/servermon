@@ -1,6 +1,4 @@
-{% extends "base.html" %}
 {% load static %}
-{% block content %}
         {% for obj in object_list %}
         <figure class='card'>
           <img src="{% static 'servermon/assets/centos.jpg' %}">
@@ -10,5 +8,4 @@
           </figcaption>
         </figure>
         {% endfor %}
-{% endblock content %}
   

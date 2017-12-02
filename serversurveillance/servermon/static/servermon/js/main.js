@@ -13,3 +13,13 @@
   })
 
 })(jQuery);
+
+$('document').ready(function(){
+    $('#search,#searchinput').on('keyup click', function(e){
+        var search_term = $('#searchinput').val();
+        $.get( "search?q=" + search_term, function( data ) {
+            $('.card-container').html(data);
+            console.log(data);
+        });
+    });
+});

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from servermon.views import server_list, server_details, terminal
+from servermon.views import server_list, server_details, terminal, search
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^$', server_list, name='server_list'),
     url(r'^server_details$', server_details, name='server_details'),
     url(r'^terminal$', terminal, name='terminal'),
+    url(r'^search/$', search, name='search'),
 ]

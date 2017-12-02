@@ -40,7 +40,11 @@ header > #logo-container {
 }
 
 header > #filter-container {
-  
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 header > #logo-container > h1 {
@@ -52,12 +56,57 @@ header > #logo-container > h1 {
   color: #3C8DC5;
 }
 
-/* Wrapper  rgba(180,4,6, 1) */
-.wrapper {
-  display: flex;
-  align-items: center;
+.search {
   width: 100%;
+  position: relative
+}
+
+.searchTerm {
+  float: left;
+  width: 100%;
+  border: 3px solid #6fb7e9;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchButton {
+  position: absolute;  
+  right: -50px;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #6fb7e9;
+  background: #6fb7e9;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+input:placeholder-shown::placeholder{
+  color: #6fb7e9;
+}
+
+input:focus::placeholder{
+  color: #D5D8DC;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
   min-height: calc(50vh - 80px);
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+  align-items: center;
   padding-top: 60px;
   z-index: 0;
 }
@@ -83,11 +132,6 @@ header > #logo-container > h1 {
   box-shadow: 0 2px 4px -1px rgba(0,0,0,0.06), 0 4px 5px 0 rgba(0,0,0,0.06), 0 1px 10px 0 rgba(0,0,0,0.08);
 }
 
-img {
-    width:180px; /* you can use % */
-    height: 140px;
-}
-
 figcaption > h4 {
   font-size: 20px;
   padding-top: 5px;
@@ -98,4 +142,56 @@ figcaption > span {
   font-size: 14px;
 }
 
+.container {
+  display: flex;
+  overflow: hidden;
+  margin: 0 -7px;
+}
 
+.container-cards{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  margin: auto;
+  width: 70%;
+}
+
+.container-sidepanel{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: green;
+  width: 40%;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+  margin-right: -45%;
+  margin-top: 54px;
+  height: auto;
+  
+}
+
+.container-sidepanel:hover {
+    overflow-y: auto;
+}
+
+.container-sidepanel.open {
+  margin-right: 0;
+}
+
+.system-info{
+  background-color:red;
+}
+
+.software-installed{
+  background-color:blue;
+}
+
+.terminal{
+  background-color:yellow;
+}
+
+
+img {
+    width:180px; /* you can use % */
+    height: 140px;
+}

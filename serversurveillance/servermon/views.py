@@ -2,10 +2,12 @@ from django.shortcuts import render
 from .models import Server
 import redis
 from channels.channel import Channel
+from .search import *
 
 redis_conn = redis.Redis("localhost", 6379)
 
 def server_list(request):
+    
     queryset = Server.objects.all()
     context = {
         'object_list': queryset
@@ -38,3 +40,16 @@ def terminal(request):
         'object_list': 'abc'
     }
     return render(request, 'terminal.html', context)
+    
+def search(request):
+    
+    queryset = Server.objects.all()
+    if ('q' in request.GET) and request.GET['q'].strip():
+        query_string = request.GET['q']
+        entry_query = get_query(query_string, ['name', 'ipaddress',])
+        found_entries = Server.objects.filter(entry_query)
+        queryset = found_entries
+    context = {
+        'object_list': queryset
+    }
+    return render(request, 'search.html', context)
