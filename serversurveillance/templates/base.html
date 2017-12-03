@@ -16,10 +16,16 @@
     </header>
 
     <body>
-    <div class='wrapper card-view'>
-        <div class='card-container'>
-            {% block content %}{% endblock content %}
+    <div class="container">
+        <div class="container-cards">
+            <div class='wrapper card-view'>
+                <div class='card-container'>
+                    {% block content %}{% endblock content %}
+                </div>
+            </div>
         </div>
+        <div class="container-sidepanel">
+      </div>
     </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="{% static "servermon/js/main.js" %}?v=1"></script>

@@ -146,6 +146,7 @@ figcaption > span {
   display: flex;
   overflow: hidden;
   margin: 0 -7px;
+  margin-top: -5px;
 }
 
 .container-cards{
@@ -160,7 +161,8 @@ figcaption > span {
   display: flex;
   flex-direction: column;
   position: relative;
-  background: green;
+  background: #f3f3f3;
+  padding-left: 20px;
   width: 40%;
   -webkit-transition-duration: .3s;
   transition-duration: .3s;
@@ -179,15 +181,15 @@ figcaption > span {
 }
 
 .system-info{
-  background-color:red;
+  
 }
 
 .software-installed{
-  background-color:blue;
+  
 }
 
 .terminal{
-  background-color:yellow;
+  
 }
 
 

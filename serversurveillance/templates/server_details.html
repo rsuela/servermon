@@ -1,0 +1,38 @@
+{% load static %}
+
+{% for obj in object_list %}
+             <div class="system-info">
+               <p>System:</p>
+               <ul>
+                <li>Computer Name: {{ obj.name }}</li>
+                <li>Processor: {{ obj.processor }}</li>
+                <li>Installed memory: {{ obj.memory }}</li>
+                <li>System Type: {{ obj.system }}</li>
+               </ul>
+               <p>Network:</p>
+               <ul>
+                 <li>FQDN: {{ obj.system }}</li>
+                 <li>IP Address: {{ obj.ipaddress }}</li>
+                 <li>MAC Address: {{ obj.mac }}</li>
+               </ul>
+            </div>
+             <div class="software-installed">
+               <p>Software List:</p>
+               <ul>
+                <li>Microsoft SQL</li>
+                <li>Python 2.7</li>
+                <li>PostGreSQL</li>
+                <li>Logix 5.</li>
+                <li>TeamViewer</li>
+                <li>VLC Media Player</li>
+                <li>iTunes</li>
+                <li>Apple Software Update</li>
+                <li>Skype</li>
+                <li>XAMPP</li>
+               </ul>
+            </div>
+             <div class="terminal">
+               <p>Lorem Ipsom dolor</p>
+            </div>
+           </div>
+{% endfor %}
