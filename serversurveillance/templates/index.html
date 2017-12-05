@@ -3,7 +3,13 @@
 {% block content %}
         {% for obj in object_list %}
         <figure class='card'>
+          {% if "windows" in obj.system|lower %}
+          <img src="{% static 'servermon/assets/windows.jpg' %}">
+          {% elif "redhat" in obj.system|lower %}
+          <img src="{% static 'servermon/assets/redhat.png' %}">
+          {% else %}
           <img src="{% static 'servermon/assets/centos.jpg' %}">
+          {% endif %}
           <figcaption>
             <h4>{{ obj.name }}</h4>
             <span cardid='{{ obj.id }}'>IP ADDRESS: {{ obj.ipaddress }}</span>

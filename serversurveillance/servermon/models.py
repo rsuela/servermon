@@ -12,7 +12,7 @@ class Server(models.Model):
     # IP configuration
     ipaddress = models.CharField(max_length=30)
     mac = models.CharField( max_length=30)
-    
+    softwares = models.CharField(max_length=250)
     # Misc
     channel_reply = models.CharField(max_length=255)
 

@@ -1,8 +1,11 @@
 {% load static %}
 
 {% for obj in object_list %}
+             <br/>
+             <br/>
              <div class="system-info">
                <p>System:</p>
+               <hr>
                <ul>
                 <li>Computer Name: {{ obj.name }}</li>
                 <li>Processor: {{ obj.processor }}</li>
@@ -10,6 +13,7 @@
                 <li>System Type: {{ obj.system }}</li>
                </ul>
                <p>Network:</p>
+               <hr>
                <ul>
                  <li>FQDN: {{ obj.system }}</li>
                  <li>IP Address: {{ obj.ipaddress }}</li>
@@ -17,7 +21,8 @@
                </ul>
             </div>
              <div class="software-installed">
-               <p>Software List:</p>
+               <p>Software List</p>
+               <hr>
                <ul>
                 <li>Microsoft SQL</li>
                 <li>Python 2.7</li>

@@ -20,6 +20,7 @@ def register(message):
                     'memory':server_data_json['memory'],
                     'processor':server_data_json['processor'],
                     'name':server_data_json['name'],
+                    'softwares':server_data_json['softwares'],
                   },
     )
     

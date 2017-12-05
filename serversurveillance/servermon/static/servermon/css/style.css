@@ -121,7 +121,7 @@ input:focus::placeholder{
 }
 
 .card {
-  flex: 0 0 10%;
+  flex: 0 0 18%;
   height: 25%;
   color: white;
   text-align: center;
@@ -161,13 +161,13 @@ figcaption > span {
   display: flex;
   flex-direction: column;
   position: relative;
-  background: #f3f3f3;
+  background: #FFFFFF;
   padding-left: 20px;
   width: 40%;
   -webkit-transition-duration: .3s;
   transition-duration: .3s;
   margin-right: -45%;
-  margin-top: 54px;
+  margin-top: 58px;
   height: auto;
   
 }
@@ -181,11 +181,31 @@ figcaption > span {
 }
 
 .system-info{
-  
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.system-info > p,hr{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.system-info > ul{
+    list-style-type: none;
 }
 
 .software-installed{
-  
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.software-installed > p,hr{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 .terminal{
@@ -194,6 +214,6 @@ figcaption > span {
 
 
 img {
-    width:180px; /* you can use % */
-    height: 140px;
+    width:240px; /* you can use % */
+    height: 200px;
 }
