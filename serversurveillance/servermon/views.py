@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from .models import Server
-import redis
 from channels.channel import Channel
 from .search import *
+from .models import Server
+import redis
+import json
 
 redis_conn = redis.Redis("localhost", 6379)
 
@@ -19,8 +20,13 @@ def server_details(request):
             server_id = request.GET['server_id']
     
     queryset = Server.objects.filter(id=server_id)
+    softwares = json.loads(str(queryset.values_list('softwares', flat=True)[0]).replace("'", "\""))
+    software_list = []
+    for key in softwares:
+        software_list.append("%s %s"%(key,softwares[key]))
     context = {
-        'object_list': queryset
+        'object_list': queryset,
+        'software_list': software_list
     }
     return render(request, 'server_details.html', context)
     
