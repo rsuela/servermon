@@ -29,17 +29,25 @@ def on_open(ws):
 ############## SOFTWARE LIST ###################
     def get_openssl_version():
         result = ""
-        version = Popen("openssl version", stdout=PIPE, stderr=STDOUT)
-        result = str(version.stdout.readlines()[0].decode('ascii'))
-        regex_result = re.search('OpenSSL (.*)  ', result)
-        return regex_result.group(1)
+        try:
+            version = Popen("openssl version", stdout=PIPE, stderr=STDOUT)
+            result = str(version.stdout.readlines()[0].decode('ascii'))
+            regex_result = re.search('OpenSSL (.*)  ', result)
+            result = regex_result.group(1)
+        except:
+            pass
+        return result
         
     def get_java_version():
         result = ""
-        version = Popen("java -version", stdout=PIPE, stderr=STDOUT)
-        result = str(version.stdout.readlines()[0]).split("version")[-1]
-        regex_result = re.search('"(.*)"', result)
-        return regex_result.group(1)
+        try:
+            version = Popen("java -version", stdout=PIPE, stderr=STDOUT)
+            result = str(version.stdout.readlines()[0]).split("version")[-1]
+            regex_result = re.search('"(.*)"', result)
+            result = regex_result.group(1)
+        except:
+            pass
+        return result
         
     def get_registry_value(reg_path, target, permFlag=False):
         result = ""
@@ -107,8 +115,10 @@ def on_open(ws):
         for software in software_list:
             found = found + software + ","
             
-        if found:
+        if len(found) > 1:
             found = found[0:len(found)-1] + "}"
+        else:
+            found = "{}"
         
         print(found)
         # software_list = "{'openssl':'%s','java':'%s',%s}"%(get_openssl_version(),get_java_version(),get_ams_product())
